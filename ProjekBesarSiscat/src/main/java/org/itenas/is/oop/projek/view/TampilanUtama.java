@@ -20,7 +20,80 @@ import org.itenas.is.oop.projek.utils.PengelolaKoneksi;
  */
 public class TampilanUtama extends javax.swing.JFrame {
 
+    static Object txtsaldo;
+    private String currentFilter = "all";
+    private DecimalFormat decimalFormat = new DecimalFormat("#,##0.000");
+    
+    public void setFilter(String filter) {
+        this.currentFilter = filter;
+        refreshTable();
+    }
 
+    private void refreshTable() {
+        try {
+            Connection conn = new PengelolaKoneksi().masuk();
+            String sql;
+            if ("all".equals(currentFilter)) {
+                sql = "SELECT * FROM catatan ORDER BY tanggal DESC";
+            } else {
+                sql = "SELECT * FROM catatan WHERE kategori = ? ORDER BY tanggal DESC";
+            }
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            if (!"all".equals(currentFilter)) {
+                ps.setString(1, currentFilter);
+            }
+            
+            ResultSet rs = ps.executeQuery();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelCatatan.getModel();
+            model.setRowCount(0);
+            
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("kategori"),
+                    rs.getDate("tanggal"),
+                    rs.getString("deskripsi"),
+                    decimalFormat.format(rs.getDouble("jumlah"))
+                });
+            }
+            
+            rs.close();
+            ps.close();
+            conn.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error refreshing table: " + ex.getMessage());
+        }
+    }
+
+    private void loadTableData() {
+        PengelolaKoneksi connectionManager = new PengelolaKoneksi();
+        try (Connection conn = connectionManager.masuk()) {
+            String query = "SELECT kategori, tanggal, deskripsi, jumlah FROM catatan";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            DefaultTableModel model = (DefaultTableModel) tabelCatatan.getModel();
+            model.setRowCount(0);
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("kategori"),
+                    rs.getString("tanggal"),
+                    rs.getString("deskripsi"),
+                    decimalFormat.format(rs.getDouble("jumlah"))
+                });
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Gagal memuat data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public TampilanUtama(String pemasukan) {
+        initComponents();
+        loadTableData();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -276,15 +349,53 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void ComboBoxCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCariActionPerformed
-
+       String selectedValue = (String) ComboBoxCari.getSelectedItem();
+        PengelolaKoneksi connectionManager = new PengelolaKoneksi();
+        try (Connection conn = connectionManager.masuk()) {
+            String query = "SELECT kategori, tanggal, deskripsi, jumlah FROM catatan WHERE kategori = ?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, selectedValue);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) tabelCatatan.getModel();
+            model.setRowCount(0);
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("kategori"),
+                    rs.getString("tanggal"),
+                    rs.getString("deskripsi"),
+                    rs.getString("jumlah")
+                });
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Gagal mencari data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_ComboBoxCariActionPerformed
 
     private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilih_kategoriActionPerformed
-
+        
     }//GEN-LAST:event_pilih_kategoriActionPerformed
 
     private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
-
+        try {
+        int selectedRow = tabelCatatan.getSelectedRow();
+        
+        if (selectedRow >= 0) {
+            String kategori = tabelCatatan.getValueAt(selectedRow, 0).toString();
+            String tanggal = tabelCatatan.getValueAt(selectedRow, 1).toString();
+            String deskripsi = tabelCatatan.getValueAt(selectedRow, 2).toString();
+            String jumlah = tabelCatatan.getValueAt(selectedRow, 3).toString();
+            
+            pilih_kategori.setSelectedItem(kategori);
+            txtTanggal.setText(tanggal);
+            txtDeskripsi.setText(deskripsi);
+            txtJumlah.setText(jumlah);
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, 
+            "Error selecting row: " + e.getMessage(), 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_tabelCatatanMouseClicked
 
     /**

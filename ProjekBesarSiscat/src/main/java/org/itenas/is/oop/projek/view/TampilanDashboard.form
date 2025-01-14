@@ -132,7 +132,7 @@
                   <Component id="btnKembali1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="176" max="32767" attributes="0"/>
+                  <EmptySpace pref="148" max="32767" attributes="0"/>
               </Group>
               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -210,11 +210,6 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\ASUS\Downloads\icons8-money-100.png"/>
-                </Property>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -382,11 +377,6 @@
                 <Component class="javax.swing.JLabel" name="jLabel8">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\ASUS\Downloads\icons8-done-24.png"/>
-                    </Property>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -482,11 +472,6 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\ASUS\Downloads\icons8-minus-24.png"/>
-                    </Property>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -578,11 +563,6 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel15">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\ASUS\Downloads\icons8-money-30.png"/>
-                    </Property>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -591,7 +571,7 @@
         <Component class="javax.swing.JButton" name="btnKembali1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\ASUS\AppData\Local\Temp\Rar$DRa0.141\Images\logout.png"/>
+              <Image iconType="2" name="C:\Users\Cloud\Downloads\icons8-logout-28 (2).png"/>
             </Property>
           </Properties>
           <Events>

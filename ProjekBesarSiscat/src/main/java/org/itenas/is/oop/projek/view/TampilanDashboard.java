@@ -132,8 +132,6 @@ public class TampilanDashboard extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Dashboard Keuangan");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\icons8-money-100.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -184,8 +182,6 @@ public class TampilanDashboard extends javax.swing.JFrame {
                 txtPemasukkanActionPerformed(evt);
             }
         });
-
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\icons8-done-24.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -249,8 +245,6 @@ public class TampilanDashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\icons8-minus-24.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -312,8 +306,6 @@ public class TampilanDashboard extends javax.swing.JFrame {
                 txtSaldoActionPerformed(evt);
             }
         });
-
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\icons8-money-30.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -386,7 +378,7 @@ public class TampilanDashboard extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        btnKembali1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.141\\Images\\logout.png")); // NOI18N
+        btnKembali1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cloud\\Downloads\\icons8-logout-28 (2).png")); // NOI18N
         btnKembali1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembali1ActionPerformed(evt);
@@ -402,7 +394,7 @@ public class TampilanDashboard extends javax.swing.JFrame {
                 .addComponent(btnKembali1)
                 .addGap(57, 57, 57)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(

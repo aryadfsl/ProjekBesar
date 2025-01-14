@@ -20,11 +20,7 @@ import org.itenas.is.oop.projek.utils.PengelolaKoneksi;
  */
 public class TampilanUtama extends javax.swing.JFrame {
 
-    
-    public TampilanUtama(String pemasukan) {
-        initComponents();
-        loadTableData();
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -288,7 +284,7 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_pilih_kategoriActionPerformed
 
     private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
-        
+
     }//GEN-LAST:event_tabelCatatanMouseClicked
 
     /**

@@ -444,6 +444,8 @@ public class TampilanDashboard extends javax.swing.JFrame {
 
     private void btnCatatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatatActionPerformed
         // TODO add your handling code here:
+        new TampilanUtama("pemasukan").setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnCatatActionPerformed
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
@@ -451,7 +453,13 @@ public class TampilanDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void btnKembali1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembali1ActionPerformed
-
+        int pilihan = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin keluar?", "Konfirmasi Logout", JOptionPane.YES_NO_OPTION);
+    
+        if (pilihan == JOptionPane.YES_OPTION) {
+        JOptionPane.showMessageDialog(null, "Anda berhasil keluar!", "Logout Berhasil", JOptionPane.INFORMATION_MESSAGE);
+        new viewMulai().setVisible(true);
+        dispose(); 
+    }
     }//GEN-LAST:event_btnKembali1ActionPerformed
 
     private void txtPengeluaran1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPengeluaran1ActionPerformed
@@ -470,6 +478,60 @@ public class TampilanDashboard extends javax.swing.JFrame {
         tampilkanTransaksi("pengeluaran");
     }//GEN-LAST:event_txtPengeluaranMouseClicked
 
+    private void tampilkanTransaksi(String kategori) {
+        TampilanUtama view = new TampilanUtama(kategori);
+        // Set the filter to show only the selected category
+        view.setFilter(kategori);
+        view.setVisible(true);
+        dispose();
+    }
+    
+    private void tampilkanPemasukkan() {
+    new TampilanUtama("pemasukkan").setVisible(true);
+    }
+
+    private void tampilkanPengeluaran() {
+        new TampilanUtama("pengeluaran").setVisible(true);
+    }
+
+    
+    private void updateTotals() {
+    PengelolaKoneksi connectionManager = new PengelolaKoneksi();
+    
+    try (Connection conn = connectionManager.masuk()) {
+        // Hitung total pemasukan
+        String sqlPemasukan = "SELECT SUM(jumlah) as total FROM catatan WHERE kategori = 'pemasukkan'";
+        PreparedStatement psPemasukan = conn.prepareStatement(sqlPemasukan);
+        ResultSet rsPemasukan = psPemasukan.executeQuery();
+        double totalPemasukan = 0;
+        
+        if (rsPemasukan.next()) {
+            totalPemasukan = rsPemasukan.getDouble("total");
+        }
+        
+        String sqlPengeluaran = "SELECT SUM(jumlah) as total FROM catatan WHERE kategori = 'pengeluaran'";
+        PreparedStatement psPengeluaran = conn.prepareStatement(sqlPengeluaran);
+        ResultSet rsPengeluaran = psPengeluaran.executeQuery();
+        double totalPengeluaran = 0;
+        
+        if (rsPengeluaran.next()) {
+            totalPengeluaran = rsPengeluaran.getDouble("total");
+        }
+        
+        // Hitung saldo
+        double saldo = totalPemasukan - totalPengeluaran;
+        
+        // Format nilai desimal
+        DecimalFormat df = new DecimalFormat("#,###.000");
+        
+        // Update label
+        txtPemasukkan.setText(df.format(totalPemasukan));
+        txtPengeluaran.setText(df.format(totalPengeluaran));
+        txtSaldo.setText(df.format(saldo));
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Error updating totals: " + ex.getMessage());
+    }
+}
 
     /**
      * @param args the command line arguments

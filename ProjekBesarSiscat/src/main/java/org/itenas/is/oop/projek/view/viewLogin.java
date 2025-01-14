@@ -131,8 +131,6 @@ public class viewLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CATAT YUKK");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\icons8-money-100.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -248,11 +246,19 @@ public class viewLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbShowPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPassActionPerformed
-        
+        showPassword();
     }//GEN-LAST:event_cbShowPassActionPerformed
 
     private void btnMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasukActionPerformed
+        int stat = conLog.masuk(txtUsername.getText(),String.valueOf(txtPassword.getPassword()));
         
+        if (stat == 1){
+            JOptionPane.showMessageDialog(null, "Login berhasil", "Pesan", JOptionPane.INFORMATION_MESSAGE);
+            new TampilanDashboard().setVisible(true);
+            dispose();
+        }else{
+             JOptionPane.showMessageDialog(null, "Username atau Password yang anda masukan salah", "Pesan", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnMasukActionPerformed
 
     private void btnDaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDaftarMouseClicked
@@ -260,7 +266,8 @@ public class viewLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDaftarMouseClicked
 
     private void btnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarActionPerformed
-        
+        viewRegister.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnDaftarActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
@@ -268,11 +275,11 @@ public class viewLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void txtUsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsernameMouseClicked
-        
+        txtUsername.setText("");
     }//GEN-LAST:event_txtUsernameMouseClicked
 
     private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
-        
+        txtPassword.setText("");
     }//GEN-LAST:event_txtPasswordMouseClicked
 
     private void btnMasukKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnMasukKeyPressed
@@ -280,11 +287,15 @@ public class viewLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMasukKeyPressed
 
     private void txtUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyPressed
-        
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnMasukActionPerformed(null);
+        }
     }//GEN-LAST:event_txtUsernameKeyPressed
 
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
-        
+            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnMasukActionPerformed(null);
+        }
     }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**

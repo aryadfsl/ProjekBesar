@@ -127,6 +127,7 @@ public class TampilanUtama extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(225, 255, 187));
 
+        btnSubmit.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.472\\Images\\save.png")); // NOI18N
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubmitMouseClicked(evt);
@@ -138,24 +139,28 @@ public class TampilanUtama extends javax.swing.JFrame {
             }
         });
 
+        btnUpdate.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.763\\Images\\updated.png")); // NOI18N
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
+        DELETE.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.476\\Images\\delete.png")); // NOI18N
         DELETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DELETEActionPerformed(evt);
             }
         });
 
+        btnClear.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.396\\Images\\clear.png")); // NOI18N
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
 
+        btnKembali.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.526\\Images\\exit.png")); // NOI18N
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
@@ -274,7 +279,7 @@ public class TampilanUtama extends javax.swing.JFrame {
                                     .addComponent(txtDeskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,23 +329,21 @@ public class TampilanUtama extends javax.swing.JFrame {
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus!", "Peringatan", JOptionPane.WARNING_MESSAGE);
         } else {
-            // Ambil kategori dan nilai lain yang bisa digunakan sebagai kunci tambahan, misalnya tanggal atau deskripsi
-            String kategori = (String) tabelCatatan.getValueAt(selectedRow, 0); // Misalnya kategori di kolom 0
-            String deskripsi = (String) tabelCatatan.getValueAt(selectedRow, 2); // Misalnya deskripsi di kolom 2, sesuaikan jika perlu
+            String kategori = (String) tabelCatatan.getValueAt(selectedRow, 0);
+            String deskripsi = (String) tabelCatatan.getValueAt(selectedRow, 2);
 
-            // Konfirmasi penghapusan hanya pada data yang dipilih
             int confirmation = JOptionPane.showConfirmDialog(this, "Anda yakin ingin menghapus data dengan kategori '" + kategori + "' dan deskripsi '" + deskripsi + "'?", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
             if (confirmation == JOptionPane.YES_OPTION) {
                 PengelolaKoneksi connectionManager = new PengelolaKoneksi();
                 try (Connection conn = connectionManager.masuk()) {
-                    // Query dengan tambahan deskripsi atau kriteria lain untuk memastikan hanya satu baris yang terhapus
-                    String query = "DELETE FROM catatan WHERE kategori = ? AND deskripsi = ? LIMIT 1";  // Gunakan deskripsi untuk memastikan hanya satu data yang dihapus
+                    
+                    String query = "DELETE FROM catatan WHERE kategori = ? AND deskripsi = ? LIMIT 1";
                     PreparedStatement ps = conn.prepareStatement(query);
                     ps.setString(1, kategori);
-                    ps.setString(2, deskripsi);  // Pastikan deskripsi cocok dengan yang dipilih
+                    ps.setString(2, deskripsi);
                     ps.executeUpdate();
                     JOptionPane.showMessageDialog(this, "Data berhasil dihapus!", "Info", JOptionPane.INFORMATION_MESSAGE);
-                    loadTableData(); // Refresh table
+                    loadTableData(); 
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(this, "Gagal menghapus data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -375,7 +378,7 @@ public class TampilanUtama extends javax.swing.JFrame {
                 ps.setString(4, jumlah);
                 ps.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan!", "Info", JOptionPane.INFORMATION_MESSAGE);
-                loadTableData(); // Refresh table
+                loadTableData(); 
                 clearInputFields();
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "Gagal menambahkan data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

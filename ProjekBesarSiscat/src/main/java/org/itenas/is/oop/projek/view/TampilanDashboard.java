@@ -480,7 +480,6 @@ public class TampilanDashboard extends javax.swing.JFrame {
 
     private void tampilkanTransaksi(String kategori) {
         TampilanUtama view = new TampilanUtama(kategori);
-        // Set the filter to show only the selected category
         view.setFilter(kategori);
         view.setVisible(true);
         dispose();
@@ -499,7 +498,6 @@ public class TampilanDashboard extends javax.swing.JFrame {
     PengelolaKoneksi connectionManager = new PengelolaKoneksi();
     
     try (Connection conn = connectionManager.masuk()) {
-        // Hitung total pemasukan
         String sqlPemasukan = "SELECT SUM(jumlah) as total FROM catatan WHERE kategori = 'pemasukkan'";
         PreparedStatement psPemasukan = conn.prepareStatement(sqlPemasukan);
         ResultSet rsPemasukan = psPemasukan.executeQuery();
@@ -517,14 +515,11 @@ public class TampilanDashboard extends javax.swing.JFrame {
         if (rsPengeluaran.next()) {
             totalPengeluaran = rsPengeluaran.getDouble("total");
         }
-        
-        // Hitung saldo
+
         double saldo = totalPemasukan - totalPengeluaran;
-        
-        // Format nilai desimal
+
         DecimalFormat df = new DecimalFormat("#,###.000");
-        
-        // Update label
+
         txtPemasukkan.setText(df.format(totalPemasukan));
         txtPengeluaran.setText(df.format(totalPengeluaran));
         txtSaldo.setText(df.format(saldo));

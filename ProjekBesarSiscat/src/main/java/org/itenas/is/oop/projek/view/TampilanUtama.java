@@ -325,6 +325,9 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDeskripsiActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
+<<<<<<< HEAD
+       
+=======
 
         int selectedRow = tabelCatatan.getSelectedRow();
         if (selectedRow == -1) {
@@ -352,6 +355,7 @@ public class TampilanUtama extends javax.swing.JFrame {
                 }
             }
         }
+>>>>>>> 19c28fca3bd3faa61e1023f6b7b2cb872fac3c0a
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -367,6 +371,9 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+<<<<<<< HEAD
+       
+=======
 
         String kategori = (String) pilih_kategori.getSelectedItem();
         String tanggal = txtTanggal.getText();
@@ -392,6 +399,7 @@ public class TampilanUtama extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Gagal menambahkan data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+>>>>>>> 19c28fca3bd3faa61e1023f6b7b2cb872fac3c0a
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -447,6 +455,14 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboBoxCariActionPerformed
 
     private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilih_kategoriActionPerformed
+<<<<<<< HEAD
+       
+    }//GEN-LAST:event_pilih_kategoriActionPerformed
+
+    private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
+       
+    
+=======
         try {
             int selectedRow = tabelCatatan.getSelectedRow();
 
@@ -490,6 +506,7 @@ public class TampilanUtama extends javax.swing.JFrame {
             "Error", 
             JOptionPane.ERROR_MESSAGE);
     }
+>>>>>>> 19c28fca3bd3faa61e1023f6b7b2cb872fac3c0a
     }//GEN-LAST:event_tabelCatatanMouseClicked
 
     /**

@@ -20,7 +20,6 @@ import org.itenas.is.oop.projek.utils.PengelolaKoneksi;
  */
 public class TampilanUtama extends javax.swing.JFrame {
 
-<<<<<<< HEAD
     static Object txtsaldo;
     private String currentFilter = "all";
     private DecimalFormat decimalFormat = new DecimalFormat("#,##0.000");
@@ -95,18 +94,7 @@ public class TampilanUtama extends javax.swing.JFrame {
         initComponents();
         loadTableData();
     }
-=======
-<<<<<<< HEAD
-   
 
-    public TampilanUtama(String pemasukan) {
-        initComponents();
-       
-    }
-=======
-
->>>>>>> 28e2e6abe9165e33aa045b6baa9e5d780078ff24
->>>>>>> f0d5968ae54cbf7d5be97c93220889a8c9031a22
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -391,7 +379,6 @@ public class TampilanUtama extends javax.swing.JFrame {
 
     private void ComboBoxCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCariActionPerformed
        String selectedValue = (String) ComboBoxCari.getSelectedItem();
-<<<<<<< HEAD
         PengelolaKoneksi connectionManager = new PengelolaKoneksi();
         try (Connection conn = connectionManager.masuk()) {
             String query = "SELECT kategori, tanggal, deskripsi, jumlah FROM catatan WHERE kategori = ?";
@@ -413,11 +400,11 @@ public class TampilanUtama extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ComboBoxCariActionPerformed
 
-    private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilih_kategoriActionPerformed
+    private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {                                               
         
-    }//GEN-LAST:event_pilih_kategoriActionPerformed
+    }                                              
 
-    private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
+    private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {                                          
         try {
         int selectedRow = tabelCatatan.getSelectedRow();
         
@@ -438,21 +425,33 @@ public class TampilanUtama extends javax.swing.JFrame {
             "Error", 
             JOptionPane.ERROR_MESSAGE);
     }
-=======
-      
-    }//GEN-LAST:event_ComboBoxCariActionPerformed
+    }                                            
 
     private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilih_kategoriActionPerformed
-      
+        try {
+            int selectedRow = tabelCatatan.getSelectedRow();
+
+            if (selectedRow >= 0) {
+                String kategori = tabelCatatan.getValueAt(selectedRow, 0).toString();
+                String tanggal = tabelCatatan.getValueAt(selectedRow, 1).toString();
+                String deskripsi = tabelCatatan.getValueAt(selectedRow, 2).toString();
+                String jumlah = tabelCatatan.getValueAt(selectedRow, 3).toString();
+
+                pilih_kategori.setSelectedItem(kategori);
+                txtTanggal.setText(tanggal);
+                txtDeskripsi.setText(deskripsi);
+                txtJumlah.setText(jumlah);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, 
+                "Error selecting row: " + e.getMessage(), 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_pilih_kategoriActionPerformed
 
     private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
-<<<<<<< HEAD
-       
-=======
 
->>>>>>> 28e2e6abe9165e33aa045b6baa9e5d780078ff24
->>>>>>> f0d5968ae54cbf7d5be97c93220889a8c9031a22
     }//GEN-LAST:event_tabelCatatanMouseClicked
 
     /**

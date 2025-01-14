@@ -510,7 +510,7 @@ public class TampilanDashboard extends javax.swing.JFrame {
 
         double saldo = totalPemasukan - totalPengeluaran;
 
-        DecimalFormat df = new DecimalFormat("#,###.000");
+        DecimalFormat df = new DecimalFormat("#,###");
 
         txtPemasukkan.setText(df.format(totalPemasukan));
         txtPengeluaran.setText(df.format(totalPengeluaran));

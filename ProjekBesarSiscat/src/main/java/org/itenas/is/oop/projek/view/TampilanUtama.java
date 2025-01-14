@@ -22,7 +22,7 @@ public class TampilanUtama extends javax.swing.JFrame {
 
     static Object txtsaldo;
     private String currentFilter = "all";
-    private DecimalFormat decimalFormat = new DecimalFormat("#,##0.000");
+    private DecimalFormat decimalFormat = new DecimalFormat("#,##0");
     
     public void setFilter(String filter) {
         this.currentFilter = filter;

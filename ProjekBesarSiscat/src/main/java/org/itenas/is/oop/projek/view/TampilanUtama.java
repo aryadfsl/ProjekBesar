@@ -20,10 +20,11 @@ import org.itenas.is.oop.projek.utils.PengelolaKoneksi;
  */
 public class TampilanUtama extends javax.swing.JFrame {
 
-    
+   
+
     public TampilanUtama(String pemasukan) {
         initComponents();
-        loadTableData();
+       
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -255,7 +256,7 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        
+        clearInputFields();
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
@@ -263,11 +264,11 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-       
+        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-int selectedRow = tabelCatatan.getSelectedRow();
+        int selectedRow = tabelCatatan.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Pilih data yang ingin diperbarui!", "Peringatan", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -276,23 +277,24 @@ int selectedRow = tabelCatatan.getSelectedRow();
             tabelCatatan.setValueAt(txtJumlah.getText(), selectedRow, 3);
             JOptionPane.showMessageDialog(this, "Data berhasil diperbarui!", "Info", JOptionPane.INFORMATION_MESSAGE);
             clearInputFields();
-        }        
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
-        
+       
     }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void ComboBoxCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCariActionPerformed
-
+       String selectedValue = (String) ComboBoxCari.getSelectedItem();
+      
     }//GEN-LAST:event_ComboBoxCariActionPerformed
 
     private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilih_kategoriActionPerformed
-
+      
     }//GEN-LAST:event_pilih_kategoriActionPerformed
 
     private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
-        
+       
     }//GEN-LAST:event_tabelCatatanMouseClicked
 
     /**

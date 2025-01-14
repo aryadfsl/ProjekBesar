@@ -62,6 +62,8 @@ public class viewLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(225, 255, 187));
 
+        btnMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnMasuk.setForeground(new java.awt.Color(0, 204, 204));
         btnMasuk.setText("MASUK");
         btnMasuk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +118,8 @@ public class viewLogin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Yukk!! buat akun");
 
+        btnDaftar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnDaftar.setForeground(new java.awt.Color(0, 204, 204));
         btnDaftar.setText("DAFTAR");
         btnDaftar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -175,7 +179,7 @@ public class viewLogin extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
-                .addGap(46, 46, 46)
+                .addGap(50, 50, 50)
                 .addComponent(btnDaftar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -224,7 +228,7 @@ public class viewLogin extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(58, 58, 58)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)

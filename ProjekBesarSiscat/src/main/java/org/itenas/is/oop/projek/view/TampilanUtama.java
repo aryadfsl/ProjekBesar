@@ -242,6 +242,8 @@ public class TampilanUtama extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Jumlah");
 
+        ComboBoxCari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ComboBoxCari.setForeground(new java.awt.Color(0, 204, 204));
         ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "Pemasukkan", "Pengeluaran" }));
         ComboBoxCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +251,8 @@ public class TampilanUtama extends javax.swing.JFrame {
             }
         });
 
+        pilih_kategori.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pilih_kategori.setForeground(new java.awt.Color(0, 204, 204));
         pilih_kategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KATEGORI", "Pemasukkan", "Pengeluaran" }));
         pilih_kategori.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

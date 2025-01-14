@@ -316,7 +316,7 @@ public class TampilanDashboard extends javax.swing.JFrame {
         );
 
         btnCatat.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCatat.setForeground(new java.awt.Color(0, 153, 153));
+        btnCatat.setForeground(new java.awt.Color(0, 204, 204));
         btnCatat.setText("Catat Keuangan");
         btnCatat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,7 +398,7 @@ public class TampilanDashboard extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel3))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
+                        .addGap(192, 192, 192)
                         .addComponent(btnCatat)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -407,9 +407,9 @@ public class TampilanDashboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3)
-                .addGap(30, 30, 30)
+                .addGap(31, 31, 31)
                 .addComponent(btnCatat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))

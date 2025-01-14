@@ -41,7 +41,8 @@ public class viewMulai extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(114, 191, 120));
 
-        btnMulai.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnMulai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnMulai.setForeground(new java.awt.Color(0, 204, 204));
         btnMulai.setText("MULAI");
         btnMulai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

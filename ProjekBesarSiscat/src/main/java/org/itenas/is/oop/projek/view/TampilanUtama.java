@@ -20,6 +20,7 @@ import org.itenas.is.oop.projek.utils.PengelolaKoneksi;
  */
 public class TampilanUtama extends javax.swing.JFrame {
 
+<<<<<<< HEAD
     static Object txtsaldo;
     private String currentFilter = "all";
     private DecimalFormat decimalFormat = new DecimalFormat("#,##0.000");
@@ -94,6 +95,18 @@ public class TampilanUtama extends javax.swing.JFrame {
         initComponents();
         loadTableData();
     }
+=======
+<<<<<<< HEAD
+   
+
+    public TampilanUtama(String pemasukan) {
+        initComponents();
+       
+    }
+=======
+
+>>>>>>> 28e2e6abe9165e33aa045b6baa9e5d780078ff24
+>>>>>>> f0d5968ae54cbf7d5be97c93220889a8c9031a22
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,7 +140,6 @@ public class TampilanUtama extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(225, 255, 187));
 
-        btnSubmit.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.556\\Images\\save.png")); // NOI18N
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubmitMouseClicked(evt);
@@ -139,28 +151,24 @@ public class TampilanUtama extends javax.swing.JFrame {
             }
         });
 
-        btnUpdate.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.509\\Images\\refresh.png")); // NOI18N
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        DELETE.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.053\\Images\\delete.png")); // NOI18N
         DELETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DELETEActionPerformed(evt);
             }
         });
 
-        btnClear.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.972\\Images\\clear.png")); // NOI18N
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
 
-        btnKembali.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.461\\Images\\exit.png")); // NOI18N
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
@@ -325,11 +333,35 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDeskripsiActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
-        
+         int selectedRow = tabelCatatan.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        } else {
+           
+            String kategori = (String) tabelCatatan.getValueAt(selectedRow, 0); 
+            String deskripsi = (String) tabelCatatan.getValueAt(selectedRow, 2); 
+            
+            int confirmation = JOptionPane.showConfirmDialog(this, "Anda yakin ingin menghapus data dengan kategori '" + kategori + "' dan deskripsi '" + deskripsi + "'?", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
+            if (confirmation == JOptionPane.YES_OPTION) {
+                PengelolaKoneksi connectionManager = new PengelolaKoneksi();
+                try (Connection conn = connectionManager.masuk()) {
+                   
+                    String query = "DELETE FROM catatan WHERE kategori = ? AND deskripsi = ? LIMIT 1";  
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, kategori);
+                    ps.setString(2, deskripsi); 
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Data berhasil dihapus!", "Info", JOptionPane.INFORMATION_MESSAGE);
+                    loadTableData(); 
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Gagal menghapus data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        
+        clearInputFields();
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
@@ -337,19 +369,29 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-       
+        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        
+        int selectedRow = tabelCatatan.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih data yang ingin diperbarui!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        } else {
+            tabelCatatan.setValueAt(txtTanggal.getText(), selectedRow, 1);
+            tabelCatatan.setValueAt(txtDeskripsi.getText(), selectedRow, 2);
+            tabelCatatan.setValueAt(txtJumlah.getText(), selectedRow, 3);
+            JOptionPane.showMessageDialog(this, "Data berhasil diperbarui!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            clearInputFields();
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
-        
+       
     }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void ComboBoxCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCariActionPerformed
        String selectedValue = (String) ComboBoxCari.getSelectedItem();
+<<<<<<< HEAD
         PengelolaKoneksi connectionManager = new PengelolaKoneksi();
         try (Connection conn = connectionManager.masuk()) {
             String query = "SELECT kategori, tanggal, deskripsi, jumlah FROM catatan WHERE kategori = ?";
@@ -396,6 +438,21 @@ public class TampilanUtama extends javax.swing.JFrame {
             "Error", 
             JOptionPane.ERROR_MESSAGE);
     }
+=======
+      
+    }//GEN-LAST:event_ComboBoxCariActionPerformed
+
+    private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilih_kategoriActionPerformed
+      
+    }//GEN-LAST:event_pilih_kategoriActionPerformed
+
+    private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
+<<<<<<< HEAD
+       
+=======
+
+>>>>>>> 28e2e6abe9165e33aa045b6baa9e5d780078ff24
+>>>>>>> f0d5968ae54cbf7d5be97c93220889a8c9031a22
     }//GEN-LAST:event_tabelCatatanMouseClicked
 
     /**
@@ -423,6 +480,14 @@ public class TampilanUtama extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TampilanUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

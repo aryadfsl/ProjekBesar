@@ -127,7 +127,6 @@ public class TampilanUtama extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(225, 255, 187));
 
-        btnSubmit.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.556\\Images\\save.png")); // NOI18N
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubmitMouseClicked(evt);
@@ -139,28 +138,24 @@ public class TampilanUtama extends javax.swing.JFrame {
             }
         });
 
-        btnUpdate.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.509\\Images\\refresh.png")); // NOI18N
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        DELETE.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.053\\Images\\delete.png")); // NOI18N
         DELETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DELETEActionPerformed(evt);
             }
         });
 
-        btnClear.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.972\\Images\\clear.png")); // NOI18N
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
 
-        btnKembali.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\AppData\\Local\\Temp\\Rar$DRa0.461\\Images\\exit.png")); // NOI18N
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
@@ -325,10 +320,6 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDeskripsiActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
-<<<<<<< HEAD
-       
-=======
-
         int selectedRow = tabelCatatan.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Pilih data yang ingin dihapus!", "Peringatan", JOptionPane.WARNING_MESSAGE);
@@ -355,12 +346,7 @@ public class TampilanUtama extends javax.swing.JFrame {
                 }
             }
         }
->>>>>>> 19c28fca3bd3faa61e1023f6b7b2cb872fac3c0a
     }//GEN-LAST:event_DELETEActionPerformed
-
-    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        clearInputFields();    
-    }                                      
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         clearInputFields();
@@ -371,10 +357,6 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-<<<<<<< HEAD
-       
-=======
-
         String kategori = (String) pilih_kategori.getSelectedItem();
         String tanggal = txtTanggal.getText();
         String deskripsi = txtDeskripsi.getText();
@@ -399,10 +381,9 @@ public class TampilanUtama extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Gagal menambahkan data: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
->>>>>>> 19c28fca3bd3faa61e1023f6b7b2cb872fac3c0a
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         int selectedRow = tabelCatatan.getSelectedRow();
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Pilih data yang ingin diperbarui!", "Peringatan", JOptionPane.WARNING_MESSAGE);
@@ -413,17 +394,6 @@ public class TampilanUtama extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Data berhasil diperbarui!", "Info", JOptionPane.INFORMATION_MESSAGE);
             clearInputFields();
         }
-    }                                         
-
-    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        new TampilanDashboard().setVisible(true);
-        dispose();
-
-       
-    }                                         
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-       
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
@@ -455,14 +425,6 @@ public class TampilanUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboBoxCariActionPerformed
 
     private void pilih_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilih_kategoriActionPerformed
-<<<<<<< HEAD
-       
-    }//GEN-LAST:event_pilih_kategoriActionPerformed
-
-    private void tabelCatatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelCatatanMouseClicked
-       
-    
-=======
         try {
             int selectedRow = tabelCatatan.getSelectedRow();
 
@@ -506,7 +468,6 @@ public class TampilanUtama extends javax.swing.JFrame {
             "Error", 
             JOptionPane.ERROR_MESSAGE);
     }
->>>>>>> 19c28fca3bd3faa61e1023f6b7b2cb872fac3c0a
     }//GEN-LAST:event_tabelCatatanMouseClicked
 
     /**
@@ -550,6 +511,7 @@ public class TampilanUtama extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
